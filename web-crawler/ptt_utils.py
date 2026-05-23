@@ -1,3 +1,7 @@
+"""
+PTT utilities.
+"""
+
 import requests
 from bs4 import BeautifulSoup
 
@@ -8,6 +12,8 @@ HEADERS = {
 COOKIES = {
     "over18": "1",
 }
+
+# def class
 
 def extract_article(article_url: str) -> str:
     """Input article URL, return article content string."""
@@ -34,3 +40,7 @@ def gen_article_file_name(title: str) -> str:
         article_file_name = article_file_name.replace(ill_chr, "_")
 
     return article_file_name
+
+
+if __name__ == "__main__":
+    print(extract_article("https://www.ptt.cc/bbs/joke/M.1779165642.A.1EC.html"))
