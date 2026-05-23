@@ -5,9 +5,17 @@ HEADERS = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
 }
 
+COOKIES = {
+    "over18": "1",
+}
+
 def extract_article(article_url: str) -> str:
     """Input article URL, return article content string."""
-    article_res = requests.get(article_url, headers=HEADERS)
+    article_res = requests.get(
+        article_url,
+        headers=HEADERS,
+        cookies=COOKIES,
+    )
     article_soup = BeautifulSoup(article_res.text, "html.parser")
     article_content_tag = article_soup.select_one('div[id="main-content"]')
 
