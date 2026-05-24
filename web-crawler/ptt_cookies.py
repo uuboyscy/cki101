@@ -16,8 +16,8 @@ export_path.mkdir(exist_ok=True)
 url = "https://www.ptt.cc/bbs/gossiping/index.html"
 
 for _ in range(5):
-    res = requests.get(url, headers=HEADERS, cookies=COOKIES)
-    soup = BeautifulSoup(res.text)
+    res = requests.get(url, headers=HEADERS, cookies=COOKIES) # Extract HTML string
+    soup = BeautifulSoup(res.text)  # Transform HTML string to HTML object
 
     for a_tag in soup.select('div[class="title"] a'):
         title = a_tag.text
