@@ -1,0 +1,15 @@
+<html>
+    <form method="POST">
+        <label>What is your name?</label>
+        <br>
+        <input type="textbox" name="username">
+        <button type="submit">Submit</button>
+    </form>
+    <div>
+    <!-- comments -->
+    {# comment #}
+    {% if request_method == 'POST' %}
+        Hello {{username}} !
+    {% endif %}
+    </div>
+</html>
